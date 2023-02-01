@@ -1,0 +1,54 @@
+.body {
+    font-family: $text-roboto;
+    font-style: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  ul {
+    margin: 0;
+  }
+  
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    @media screen and (min-width: 320px) {
+      width: 320px;
+    }
+    @media screen and(min-width:768px) {
+      width: 768px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    @media screen and(min-width:1200px) {
+      width: 1200px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+  
+.link {
+  text-decoration: none;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// для респонсивных картинок (респонизация) базовых, но не фоновых
+img {
+  display: block
+  max-width 100%;
+  height: auto;
+}
+
+

@@ -1,0 +1,212 @@
+/* --------------------modal-backdrop------------- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-backdrop.is-hidden .modal {
+    transform: scale(1);
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+  
+.modal {
+    width: 450px;
+    @media screen and (min-width: 1200px) {
+      width: 528px;
+    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 40px;
+    transform: scale(1) translate(-50%, -50%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: $button-filtr-font-active;
+    border-radius: 4px;
+    &__close {
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      top: 8px;
+      right: 8px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      background-color: $button-filtr-font-active;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &__svg {
+        fill: $header-logo-last-color;
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &__close:hover {
+        border: 1px solid $accent-color; 
+        .modal__svg {
+          fill: $accent-color;
+        }
+    }
+  }
+
+
+/* modal-form input */
+.modal-title {
+  color: $button-filtr-font;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: calc(16 / 14);
+  text-align: center;
+  margin-bottom: 12px;
+}
+  .modal-form {
+  }
+
+
+  .modal-input {
+    // margin-bottom: 10px; 
+      &_label  {
+      display: inline-block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      color: $primary-text-color;
+      }
+      &_wrapper {
+      position: relative;
+      }
+      &_line {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      padding: 12px;
+      padding-left: 42px;
+      font-size: 16px;
+      color: $title-text-color;
+      transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      outline: 0;  /* вот то что меня сбивало и не окрашивало бордер в голубой */
+      cursor: pointer;
+      }
+      &_line:hover,
+      &_line:focus, 
+      &_line:focus-within,
+      &_line:focus-visible  {
+        border-color: $accent-color;
+      }
+      &_icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-75%);
+        fill: $button-filtr-font;
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      &_line:focus + &_icon,
+      &_line:hover + &_icon {
+        fill: $accent-color;
+      }
+      &_textarea {
+        width: 100%;
+        height: 120px;
+        border-radius: 4px;
+        border: 1px solid rgba(33, 33, 33, 0.2);
+        resize: none;
+        padding: 12px 16px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: calc(14 / 12);
+        color: rgba(117, 117, 117, 0.5);
+        transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        outline: 0; 
+        cursor: pointer;
+      }
+      &_textarea:hover,
+      &_textarea:focus,
+      &_textarea:focus-within,
+      &_textarea:focus-visible  {
+        border: 1px solid $accent-color;
+      }
+  }
+
+  .check-line {
+  margin: 10px auto 0;
+    .check-line__agree {
+      display: inline-flex;
+    align-items: center;
+    justify-content: center;
+   }
+    &__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    @media screen and (min-width: 1200px) {
+      font-size: 14px;
+      line-height: calc(24 / 14);
+    }
+    color: $primary-text-color;
+    }
+    &__contract {
+    margin-left: 5px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    @media screen and (min-width: 1200px) {
+      font-size: 14px;
+      line-height: calc(24 / 14);
+    }
+    color: $accent-color;
+    }
+    &__agree .icon-wrapper {
+    display: flex;
+    width: 16px;
+    height: 15px;
+    border: 1px solid $button-filtr-font;
+    border-radius: 2px;
+    margin-right: 8px;
+    align-items: center;
+    justify-content: center;
+    }
+    &__agree .agree-icon {
+    fill: transparent;
+    }
+  }
+
+  .check-line input:checked + .check-line__agree .icon-wrapper {
+    background-color: $background-color-button;
+    border: none;
+  }
+  .check-line input:checked + .check-line__agree .agree-icon {
+    fill: #ffffff;
+  }
+
+
+  .modal-button {
+    display: block;
+    padding: 10px 52px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(30 / 16);
+    color: $hero-color;
+    background-color: $background-color-button;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    margin: 30px auto 0;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+   &:hover, 
+   &:active {
+    background-color: $button-bkg-mouse; 
+   }
+   }
